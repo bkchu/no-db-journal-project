@@ -32,7 +32,6 @@ class Posts extends Component {
       <div className="Posts">
         {posts &&
           posts.map(post => {
-            console.log(post.id);
             return (
               <Post
                 key={post.id}

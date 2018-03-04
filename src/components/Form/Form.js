@@ -43,7 +43,7 @@ class Form extends Component {
         axios
           .put("/api/journal/" + idToGet, { title, text, imageUrl })
           .then(response => {
-            this.props.history.push("/");
+            this.props.history.push("/journal/" + idToGet);
           })
           .catch(error => {
             console.log(error);

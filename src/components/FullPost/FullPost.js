@@ -75,12 +75,7 @@ class FullPost extends Component {
           <div className="FullPost__date">
             {moment(date).format("MMM DD, YYYY")}
           </div>
-          <div
-            style={{
-              backgroundImage: `url(${imageUrl})`
-            }}
-            className="FullPost__image"
-          />
+          <img className="FullPost__image" src={imageUrl} alt="" />
           <div className="FullPost__text">{text}</div>
         </div>
       );
