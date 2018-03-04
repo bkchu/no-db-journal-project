@@ -65,6 +65,9 @@ class Form extends Component {
   };
 
   render() {
+    let buttonText =
+      this.props.match.url === "/journal/new" ? "+ Add Post" : "Publish Edits";
+
     return (
       <div className="Form">
         <input
@@ -86,7 +89,7 @@ class Form extends Component {
           onImageSelect={this.onImageSelectedHandler}
         />
         <Button classes={"Form__button"} onClick={this.onSubmitHandler}>
-          + Add Post
+          {buttonText}
         </Button>
       </div>
     );

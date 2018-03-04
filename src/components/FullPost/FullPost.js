@@ -31,7 +31,7 @@ class FullPost extends Component {
       axios
         .delete("/api/journal/" + this.props.match.params.id)
         .then(response => {
-          this.props.history.goBack();
+          this.props.history.push("/");
           this.setState({ selected: null, deleteConfirm: 0 });
         });
     } else {
