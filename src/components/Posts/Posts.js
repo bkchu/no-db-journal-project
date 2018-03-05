@@ -33,7 +33,7 @@ class Posts extends Component {
   render() {
     const { posts } = this.state;
     return (
-      <div ref={instance => (this.postsRef = instance)} className="Posts">
+      <div className="Posts">
         {posts &&
           posts.map(post => {
             return (

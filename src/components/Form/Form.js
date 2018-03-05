@@ -10,7 +10,8 @@ class Form extends Component {
     this.state = {
       title: "",
       text: "",
-      imageUrl: ""
+      imageUrl: "",
+      imageUser: ""
     };
   }
 
@@ -19,18 +20,18 @@ class Form extends Component {
       let searchParam = new URLSearchParams(this.props.location.search);
       let idToGet = searchParam.get("id");
       axios.get("/api/journal/" + idToGet).then(response => {
-        let { title, text, imageUrl } = response.data;
-        this.setState({ title, text, imageUrl });
+        let { title, text, imageUrl, imageUser } = response.data;
+        this.setState({ title, text, imageUrl, imageUser });
       });
     }
   }
 
   onSubmitHandler = () => {
-    let { title, text, imageUrl } = this.state;
+    let { title, text, imageUrl, imageUser } = this.state;
     if (!(title === "" || text === "" || imageUrl === "")) {
       if (this.props.match.url === "/journal/new") {
         axios
-          .post("/api/journal", { title, text, imageUrl })
+          .post("/api/journal", { title, text, imageUrl, imageUser })
           .then(response => {
             this.props.history.push("/");
           })
@@ -41,7 +42,7 @@ class Form extends Component {
         let searchParam = new URLSearchParams(this.props.location.search);
         let idToGet = searchParam.get("id");
         axios
-          .put("/api/journal/" + idToGet, { title, text, imageUrl })
+          .put("/api/journal/" + idToGet, { title, text, imageUrl, imageUser })
           .then(response => {
             this.props.history.push("/journal/" + idToGet);
           })
@@ -60,8 +61,8 @@ class Form extends Component {
     this.setState({ text: e.target.value });
   };
 
-  onImageSelectedHandler = url => {
-    this.setState({ imageUrl: url });
+  onImageSelectedHandler = (imageUrl, imageUser) => {
+    this.setState({ imageUrl, imageUser });
   };
 
   render() {

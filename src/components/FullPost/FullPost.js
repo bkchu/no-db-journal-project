@@ -47,7 +47,7 @@ class FullPost extends Component {
   render() {
     let display = <p>Loading...</p>;
     if (this.state.selected) {
-      let { date, imageUrl, text, title } = this.state.selected;
+      let { date, imageUrl, text, title, imageUser } = this.state.selected;
       display = (
         <div className="FullPost">
           <div className="FullPost__buttons">
@@ -76,6 +76,22 @@ class FullPost extends Component {
             {moment(date).format("MMM DD, YYYY")}
           </div>
           <img className="FullPost__image" src={imageUrl} alt="" />
+          <p className="FullPost__image-user">
+            Photo by{" "}
+            <a
+              className="image__link"
+              href={`https://unsplash.com/@${imageUser}?utm_source=react-journal&utm_medium=referral`}
+            >
+              {imageUser}
+            </a>{" "}
+            on{" "}
+            <a
+              className="image__link"
+              href="https://unsplash.com/?utm_source=react-journal&utm_medium=referral"
+            >
+              Unsplash
+            </a>
+          </p>
           <div className="FullPost__text">{text}</div>
         </div>
       );

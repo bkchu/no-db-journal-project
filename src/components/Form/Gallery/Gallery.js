@@ -30,7 +30,10 @@ class Gallery extends Component {
   onClickHandler = index => {
     let { images } = this.state;
     this.setState({ selectedImage: images[index] });
-    this.props.onImageSelect(images[index].urls.regular);
+    this.props.onImageSelect(
+      images[index].urls.regular,
+      images[index].user.username
+    );
   };
 
   render() {

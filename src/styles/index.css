@@ -356,12 +356,22 @@ body {
   letter-spacing: 1px;
   margin-bottom: 20px;
 }
+
 .FullPost__image {
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }
+
+.FullPost__image-user {
+  margin-bottom: 20px;
+  font-size: 0.8em;
+  text-align: right;
+}
+
+.FullPost__image-user .image__link {
+}
+
 .FullPost__text {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif,
-    "Times New Roman", Times, serif;
+  font-family: Georgia, Cambria, Cochin, Times, "Times New Roman", serif;
   font-size: 1.05em;
   line-height: 1.75em;
 }
@@ -372,13 +382,13 @@ body {
   font-family: Georgia;
   text-transform: uppercase;
   font-size: 5.7em;
-  line-height: 60px;
+  line-height: 0.7em;
   padding-top: 11px;
   padding-right: 8px;
 }
 
 a {
-  color: var(--light-gray) !important;
+  color: var(--gray) !important;
 }
 
 a.active {
