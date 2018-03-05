@@ -16,7 +16,6 @@ class Posts extends Component {
     axios
       .get("/api/journal")
       .then(response => {
-        console.log(response.data);
         this.setState({ posts: response.data });
       })
       .catch(error => console.log(error));

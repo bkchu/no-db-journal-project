@@ -14,7 +14,6 @@ class Gallery extends Component {
   }
 
   onSearchHandler = val => {
-    console.log(val);
     axios
       .get(
         `https://api.unsplash.com/search/photos?query=${val}&client_id=${
@@ -23,6 +22,25 @@ class Gallery extends Component {
       )
       .then(res => {
         this.setState({ images: res.data.results });
+      })
+      .catch(err => {
+        console.log("Error happened during fetching!", err);
+      });
+  };
+
+  onRandomSearchHandler = () => {
+    axios
+      .get(
+        `https://api.unsplash.com/photos/random?client_id=${
+          process.env.REACT_APP_CLIENT_ID
+        }`
+      )
+      .then(res => {
+        this.setState({ selectedImage: res.data });
+        this.props.onImageSelect(
+          this.state.selectedImage.urls.full,
+          this.state.selectedImage.user.username
+        );
       })
       .catch(err => {
         console.log("Error happened during fetching!", err);
@@ -67,7 +85,10 @@ class Gallery extends Component {
 
     return (
       <div className="Gallery">
-        <SearchBar search={this.onSearchHandler} />
+        <SearchBar
+          search={this.onSearchHandler}
+          random={this.onRandomSearchHandler}
+        />
         <div className="Gallery__pictures">{pictures}</div>
         <div>{selectedPhoto}</div>
       </div>

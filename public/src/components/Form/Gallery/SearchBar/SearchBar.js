@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import Button from "../../../Button/Button";
+
 class SearchBar extends Component {
   constructor(props) {
     super(props);
@@ -16,7 +18,7 @@ class SearchBar extends Component {
   render() {
     return (
       <div className="SearchBar">
-        <form onSubmit={this.onSubmitHandler}>
+        <form className="SearchBar__form" onSubmit={this.onSubmitHandler}>
           <input
             className="SearchBar__input"
             placeholder="Search for some photos, then hit enter."
@@ -26,6 +28,9 @@ class SearchBar extends Component {
           />
           <button />
         </form>
+        <Button classes="SearchBar__random" onClick={this.props.random}>
+          Random
+        </Button>
       </div>
     );
   }

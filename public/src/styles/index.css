@@ -221,6 +221,12 @@ body {
   border-radius: 4px;
 }
 
+@media screen and (max-width: 600px) {
+  .Form__button {
+    width: 100%;
+  }
+}
+
 .Form__button:hover {
   color: rgba(0, 0, 0, 0.68);
   border: 1px solid var(--gray);
@@ -230,12 +236,60 @@ body {
   background-color: var(--light-gray);
 }
 
+.SearchBar {
+  width: 100%;
+  display: flex;
+}
+
+@media screen and (max-width: 600px) {
+  .SearchBar {
+    flex-wrap: wrap;
+  }
+}
+
+.SearchBar__form {
+  flex: 1;
+}
+
+@media screen and (max-width: 600px) {
+  .SearchBar__form {
+    flex: none;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
 .SearchBar__input {
   width: 100%;
   border: none;
   border-bottom: 1px solid var(--light-gray);
   padding-bottom: 10px;
   color: var(--gray);
+}
+
+.SearchBar__random {
+  width: 200px;
+  padding: 14px;
+  margin-top: -20px;
+
+  border: 1px solid var(--light-gray);
+  color: var(--gray);
+  border-radius: 4px;
+}
+@media screen and (max-width: 600px) {
+  .SearchBar__random {
+    flex: 1;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+.SearchBar__random:hover {
+  color: rgba(0, 0, 0, 0.68);
+  border: 1px solid var(--gray);
+}
+
+.SearchBar__random:active {
+  background-color: var(--light-gray);
 }
 
 .Gallery__pictures {

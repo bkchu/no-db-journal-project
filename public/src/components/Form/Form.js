@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import Gallery from "./Gallery/Gallery";
 import Button from "../Button/Button";
+import { ToastContainer, toast } from "react-toastify";
 
 class Form extends Component {
   constructor(props) {
@@ -50,6 +51,19 @@ class Form extends Component {
             console.log(error);
           });
       }
+    } else {
+      switch ("") {
+        case title:
+          toast.error("Title cannot be empty.");
+          break;
+        case text:
+          toast.error("Message cannot be empty.");
+          break;
+        case imageUrl:
+          toast.error("Search for an image.");
+          break;
+        default:
+      }
     }
   };
 
@@ -92,6 +106,7 @@ class Form extends Component {
         <Button classes={"Form__button"} onClick={this.onSubmitHandler}>
           {buttonText}
         </Button>
+        <ToastContainer />
       </div>
     );
   }
