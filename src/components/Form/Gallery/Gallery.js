@@ -17,7 +17,9 @@ class Gallery extends Component {
     console.log(val);
     axios
       .get(
-        `https://api.unsplash.com/search/photos?query=${val}&client_id=f419039b7082dcd11d36d31bef94d758b6f7a11b0c941c8d2aa134512f5002ab`
+        `https://api.unsplash.com/search/photos?query=${val}&client_id=${
+          process.env.REACT_APP_CLIENT_ID
+        }`
       )
       .then(res => {
         this.setState({ images: res.data.results });
