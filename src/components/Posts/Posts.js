@@ -22,6 +22,10 @@ class Posts extends Component {
       .catch(error => console.log(error));
   }
 
+  componentDidUpdate() {
+    window.scrollTo(0, 0);
+  }
+
   onFullPostHandler = id => {
     this.props.history.push("/journal/" + id);
   };
@@ -29,7 +33,7 @@ class Posts extends Component {
   render() {
     const { posts } = this.state;
     return (
-      <div className="Posts">
+      <div ref={instance => (this.postsRef = instance)} className="Posts">
         {posts &&
           posts.map(post => {
             return (

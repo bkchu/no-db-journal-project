@@ -19,7 +19,7 @@ class SearchBar extends Component {
         <form onSubmit={this.onSubmitHandler}>
           <input
             className="SearchBar__input"
-            placeholder="Search unsplash.com for photos, then hit enter."
+            placeholder="Search for some photos, then hit enter."
             value={this.state.query}
             onChange={e => this.setState({ query: e.target.value })}
             type="text"
