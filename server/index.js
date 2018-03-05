@@ -1,13 +1,11 @@
 const express = require("express");
 const { json } = require("body-parser");
-const cors = require("cors");
 const path = require("path");
 
 const journalController = require(`${__dirname}/controllers/journal_controller`);
 
 const app = express();
 
-app.use(cors());
 app.use(json());
 app.use(express.static(path.join(__dirname, "../public/build")));
 
