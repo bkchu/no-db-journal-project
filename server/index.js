@@ -16,7 +16,7 @@ app.get(`${baseUrl}/:id`, journalController.getPost);
 app.put(`${baseUrl}/:id`, journalController.updatePost);
 app.delete(`${baseUrl}/:id`, journalController.deletePost);
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Listening on PORT: ${PORT}`);
 });
